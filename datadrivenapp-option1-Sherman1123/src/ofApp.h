@@ -21,4 +21,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+		ofImage btnImg; //image object for button appearance
+		ofRectangle btn1, btn2; //rectangle object to hold buttons
 };

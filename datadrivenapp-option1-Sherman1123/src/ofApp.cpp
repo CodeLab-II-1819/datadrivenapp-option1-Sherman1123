@@ -1,5 +1,7 @@
 #include "ofApp.h"
 #include <fstream>
+#include "ofxGui.h"
+#pragma once
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -27,32 +29,28 @@ void ofApp::draw() {
 	//draw button using drawRectangle and pass in rectangle positions from btn2
 	ofDrawRectangle(btn2);
 }
-}
+
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
+void ofApp::mouseMoved(int x, int y){
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button) {
+void ofApp::mousePressed(int x, int y, int button){
 	//check whether mouse press is inside buttons
-	if (btn1.inside(x, y)) {
+	if  (btn1.inside(x, y)) {
 		std::cout << "Clicked button 1" << endl;
 	}
 	if (btn2.inside(x, y)) {
@@ -62,30 +60,24 @@ void ofApp::mousePressed(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseEntered(int x, int y){
-
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseExited(int x, int y){
-
 }
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-
 }
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
-
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
+void ofApp::dragEvent(ofDragInfo dragInfo){
 }
