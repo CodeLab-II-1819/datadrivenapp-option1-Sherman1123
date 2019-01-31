@@ -1,6 +1,7 @@
 #include "ofMain.h"
 #include "ofApp.h"
 #include <fstream>
+#include "ofxTextSuite.h"
 
 //========================================================================
 int main( ){

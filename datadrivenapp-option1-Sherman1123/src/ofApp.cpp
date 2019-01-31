@@ -3,6 +3,8 @@
 #include "ofxGui.h"
 #pragma once
 #include <vector>
+#include "ofxTextSuite.h"
+#include <iostream>
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -21,6 +23,8 @@ void ofApp::setup() {
 	btn10.set(20, 560, 150, 50);
 	btn11.set(20, 620, 150, 50);
 	btn12.set(20, 680, 150, 50);
+	myPara.init("font.ttf", 10);//init text block font and text size
+	paraY = 10; //set paragraph y position
 }
 
 //--------------------------------------------------------------
@@ -45,17 +49,26 @@ void ofApp::draw() {
 	ofDrawRectangle(btn10);
 	ofDrawRectangle(btn11);
 	ofDrawRectangle(btn12);
-
+	myPara.setHtmlText(tweetStream.str());
+	myPara.wrapTextX(500); //set paragraph width
+	//draw paragraph
+	myPara.draw(200, paraY);
 }
 
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
+void ofApp::keyPressed(int key) {
+	//move text up and down on key press to mimic scrolling
+	switch (key) {
+	case OF_KEY_UP:
+		paraY -= 10;
+		break;
+	case OF_KEY_DOWN:
+		paraY += 10;
+		break;
+	}
 }
 
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-}
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
 	//check whether mouse press is inside buttons
@@ -110,8 +123,7 @@ void OpenFile(string search, int count){
 			cout << "Reading from file" << endl;
 			Created.resize(Created.size() +1);
 			Content.resize(Content.size() + 1);
-			getline(inFile, Created[Places], ','); // getline from file till comma
-			getline(inFile, Content[Places], '\n'); // getline from file till comma
+			tweetStream  << getline(inFile, Created[Places], ',') << getline(inFile, Content[Places], '\n') << "<br/><br/>"; // getline from file till comma // getline from file till comma
 			Places++;
 		}
 		inFile.close(); // close file
