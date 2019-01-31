@@ -1,6 +1,7 @@
 #pragma once
 #include "ofxTextSuite.h"
 #include "ofMain.h"
+#include "ofxFrame.h"
 
 class ofApp : public ofBaseApp{
 

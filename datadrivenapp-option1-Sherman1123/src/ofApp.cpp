@@ -4,12 +4,12 @@
 #pragma once
 #include <vector>
 #include "ofxTextSuite.h"
-#include <iostream>
-
+#include <iostream>#include "ofxFrame.h"
+stringstream tweetStream;
 //--------------------------------------------------------------
 void ofApp::setup() {
 	btnImg.load("button.png");//load in button image
-
+	
 	//set position and size for 2 button rectangles
 	btn1.set(20, 20, 150, 50);
 	btn2.set(20, 80, 150, 50);
@@ -49,7 +49,7 @@ void ofApp::draw() {
 	ofDrawRectangle(btn10);
 	ofDrawRectangle(btn11);
 	ofDrawRectangle(btn12);
-	myPara.setHtmlText(tweetStream.str());
+	myPara.setText(tweetStream.str());
 	myPara.wrapTextX(500); //set paragraph width
 	//draw paragraph
 	myPara.draw(200, paraY);
@@ -112,6 +112,7 @@ void ofApp::mousePressed(int x, int y, int button) {
 void OpenFile(string search, int count){
 	int Places = 0;
 	int NumberOf = 0;
+	string TEMP;
 	vector<string> Created = {};
 	vector<string> Content = {};
 	// open a file in read mode.
@@ -123,10 +124,18 @@ void OpenFile(string search, int count){
 			cout << "Reading from file" << endl;
 			Created.resize(Created.size() +1);
 			Content.resize(Content.size() + 1);
-			tweetStream  << getline(inFile, Created[Places], ',') << getline(inFile, Content[Places], '\n') << "<br/><br/>"; // getline from file till comma // getline from file till comma
+			tweetStream << getline(inFile, Created[Places], ',') << getline(inFile, Content[Places], '\n') << "¬"; // getline from file till comma // getline from file till comma
+			
 			Places++;
 		}
 		inFile.close(); // close file
+	}	if (search != "DoNothing")
+	{
+		//find(Content[Places], Content[Places], search);
+		string Temp = Content[Places];
+		if (Temp == search) {
+			cout << "String 1 contains business" << endl;
+		}
 	}
 }
 
