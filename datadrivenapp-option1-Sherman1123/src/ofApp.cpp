@@ -96,8 +96,9 @@ void ofApp::mousePressed(int x, int y, int button) {
 		std::cout << "Clicked button 12" << endl;
 	}
 }
-void OpenFile(string search){
+void OpenFile(string search, int count){
 	int Places = 0;
+	int NumberOf = 0;
 	vector<string> Created = {};
 	vector<string> Content = {};
 	// open a file in read mode.
